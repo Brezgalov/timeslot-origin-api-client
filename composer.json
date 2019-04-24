@@ -1,0 +1,21 @@
+{
+    "name": "brezgalov/timeslot-origin-api-client",
+    "description": "api client for our c# api",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oleg Brezgalov",
+            "email": "oleg.brezgalov@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "brezgalov/api-wrapper": "^1.0.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Brezgalov\\TimeslotOriginApiClient\\": "src/"
+        }
+    }
+}
