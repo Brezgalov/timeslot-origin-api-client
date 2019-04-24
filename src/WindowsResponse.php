@@ -30,4 +30,22 @@ class WindowsResponse extends \Brezgalov\ApiWrapper\Response
 
         return true;
     }
+
+    /**
+     * get Nth window
+     * @param int $index
+     * @return array|null
+     */
+    public function getWindow($index = 0)
+    {
+        $i = 0;
+        $result = null;
+        foreach ($this->data['Windows'] as $id => $time) {
+            if ($i == $index) {
+                $result = ['id' => $id, 'time' => $time];
+                break;
+            }
+        }
+        return $result;
+    }
 }
