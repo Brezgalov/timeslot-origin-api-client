@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "brezgalov/api-wrapper",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Brezgalov/api-wrapper.git",
-                "reference": "0d77e53a38972b086d55cd0f093d2118a2f45738"
+                "reference": "2e0b488e11b5f2f12f16fe9fbd0d342f31ab7dae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Brezgalov/api-wrapper/zipball/0d77e53a38972b086d55cd0f093d2118a2f45738",
-                "reference": "0d77e53a38972b086d55cd0f093d2118a2f45738",
+                "url": "https://api.github.com/repos/Brezgalov/api-wrapper/zipball/2e0b488e11b5f2f12f16fe9fbd0d342f31ab7dae",
+                "reference": "2e0b488e11b5f2f12f16fe9fbd0d342f31ab7dae",
                 "shasum": ""
             },
             "require": {
@@ -41,7 +41,7 @@
                 }
             ],
             "description": "Api client base classes",
-            "time": "2019-04-24T14:31:12+00:00"
+            "time": "2019-04-24T15:16:10+00:00"
         }
     ],
     "packages-dev": [],

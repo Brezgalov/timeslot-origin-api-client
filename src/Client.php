@@ -51,14 +51,13 @@ class Client extends \Brezgalov\ApiWrapper\Client
      */
     public function getWindows(array $params)
     {
-        $requestHandler = '\Brezgalov\TimeslotOriginApiClient\WindowsRequest';
-
         $params['ProviderId'] = static::PROVIDER_ID_VTERMINAL;
         if (!array_key_exists('TrucksCount', $params)) {
             $params['TrucksCount'] = 1;
         }
 
-        return $this->prepareRequest('/getWindows', $requestHandler)
+        return $this->prepareRequest('/getWindows')
+            ->setResponseClass('\Brezgalov\TimeslotOriginApiClient\WindowsResponse')
             ->setMethod('POST')
             ->setQueryParams(['format' => 'json'])
             ->setBodyParams($params)
