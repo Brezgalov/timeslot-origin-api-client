@@ -74,6 +74,7 @@ class Client extends \Brezgalov\ApiWrapper\Client
             $initiator = '\Brezgalov\TimeslotOriginApiClient\Client';
         }
         return $this->prepareRequest("/deleteWindow/{$phone}/{$windowId}")
+            ->setResponseClass('\Brezgalov\TimeslotOriginApiClient\DeleteWindowResponse')
             ->setMethod('POST')
             ->setQueryParams(['format' => 'json'])
             ->setBodyParams([
