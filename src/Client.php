@@ -51,16 +51,37 @@ class Client extends \Brezgalov\ApiWrapper\Client
     /**
      * @return \Brezgalov\ApiWrapper\Response
      */
-    public function confirmWindow()
+    public function confirmWindow($windowId, $plate)
     {
-
+        return $this->prepareRequest("/acceptWindows/{$windowId}/{$plate}")
+            ->setResponseClass('\Brezgalov\TimeslotOriginApiClient\WindowsConfirmResponse')
+            ->setMethod('POST')
+            ->setQueryParams(['format' => 'json'])
+            ->setBodyParams([
+                'Id'    => $windowId,
+                'Plate' => $plate,
+            ])
+            ->execJson()
+        ;
     }
 
     /**
      * @return \Brezgalov\ApiWrapper\Response
      */
-    public function deleteWindow()
+    public function deleteWindow($phone, $windowId, $initiator = null)
     {
-
+        if (empty($initiator)) {
+            $initiator = '\Brezgalov\TimeslotOriginApiClient\Client';
+        }
+        return $this->prepareRequest("/deleteWindow/{$phone}/{$windowId}")
+            ->setMethod('POST')
+            ->setQueryParams(['format' => 'json'])
+            ->setBodyParams([
+                'Phone'    => $phone,
+                'WindowId' => $windowId,
+                'Initiator' => $initiator,
+            ])
+            ->execJson()
+        ;
     }
 }
