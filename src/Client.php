@@ -85,4 +85,26 @@ class Client extends \Brezgalov\ApiWrapper\Client
             ->execJson()
         ;
     }
+
+    /**
+     * Send a notification to zernovozam app
+     *
+     * @param $phones
+     * @param $text
+     * @param $sender
+     * @param int $type
+     * @return \Brezgalov\ApiWrapper\Response
+     */
+    public function sendNotification($phones, $text, $sender, $type = 1)
+    {
+        return $this->prepareRequest('/PushNotification/json/reply/NotificateUsers')
+            ->setMethod('POST')
+            ->setBodyParams([
+                'Phones'    => $phones,
+                'Message'   => $text,
+                'Type'      => $type,
+                'Sender'    => $sender,
+            ])
+            ->execJson();
+    }
 }
