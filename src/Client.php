@@ -92,19 +92,22 @@ class Client extends \Brezgalov\ApiWrapper\Client
      * @param $phones
      * @param $text
      * @param $sender
-     * @param int $type
+     * @param array $customArgs
      * @return \Brezgalov\ApiWrapper\Response
      */
-    public function sendNotification($phones, $text, $sender, $type = 1)
+    public function sendNotification($phones, $text, $sender, array $customArgs = ['Type' => 1])
     {
+        if (!array_key_exists('Type', $customArgs)) {
+            $customArgs['Type'] = 1;
+        }
+
         return $this->prepareRequest('/PushNotification/json/reply/NotificateUsers')
             ->setMethod('POST')
-            ->setBodyParams([
+            ->setBodyParams(array_merge($customArgs, [
                 'Phones'    => $phones,
                 'Message'   => $text,
-                'Type'      => $type,
                 'Sender'    => $sender,
-            ])
+            ]))
             ->execJson();
     }
 }
